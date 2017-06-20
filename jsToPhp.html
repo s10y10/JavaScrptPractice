@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            margin-left: 150px;
+            margin-top: 200px;
+            font-size: 40px;
+            background: url("yw1.png");
+        }
+    </style>
+</head>
+<body>
+<button onclick="onClickHandler()">点我点我</button>
+<script>
+    var xmlHttp;
+    function onClickHandler(){
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = xmlHttpResponse;
+        xmlHttp.open("GET","http://10.0.9.73/html5/jsToPhp.php",true);
+        xmlHttp.send(null);
+    }
+
+    function xmlHttpResponse(){
+        if(xmlHttp.readyState==4 && xmlHttp.status==200){
+            var responseText = xmlHttp.responseText;
+            console.log(responseText);
+        }
+    }
+</script>
+</body>
+</html>

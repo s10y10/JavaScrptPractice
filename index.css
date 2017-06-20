@@ -1,0 +1,25 @@
+.aaa{
+    color: #fff000;
+    font-family: "Helvetica Neue";
+    font-style: italic;
+}
+body{
+    background-color: #cc4440;
+}
+@media screen and (max-width: 500px) {
+    body {
+        background-color:#ffffff;
+    }
+}
+.cities {
+    background-color:black;
+    color:white;
+    margin-right: 400px;
+    margin-left:0px;
+}
+div.red{
+    color: aqua;
+}
+span.red{
+    color: aqua;
+}

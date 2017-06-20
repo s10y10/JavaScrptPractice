@@ -1,0 +1,38 @@
+header{
+    background-color: black;
+    text-align: center;
+    padding: 5px;
+    color: white;
+}
+nav{
+    background-color: #eeeeee;
+    float: left;
+    padding: 5px;
+    width: 100px;
+    height: 300px;
+    line-height: 30px;
+    font-size: 18px;
+    font-style: italic;
+}
+section{
+    float: left;
+    padding:5px;
+    line-height: 30px;
+}
+footer{
+    background-color: black;
+    text-align: center;
+    padding:5px;
+    color: white;
+    clear: both;
+}
+table.lamp {
+    width:100%;
+    border:1px solid #f4d4d4;
+}
+table.lamp th, td {
+    padding:10px;
+}
+table.lamp td {
+    width:40px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Php</title>
+    <style>
+        div#div1{
+            width: 300px;
+            height: 300px;
+            font-size: 20px;
+            color: rebeccapurple;
+            background-color: #4cae4c;
+            line-height: 300px;
+            text-align: center;
+        }
+    </style>
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+<div id="div1">请叫我div1</div>
+<button id="btn1" onclick="clickBtn1()" style="font-size: 30px;margin-top: 10px">我是按钮1</button>
+<script>
+    var xhr1;
+    var phpUrl = "http://10.0.9.44/html5/api.php";
+    function clickBtn1()
+    {
+        var data = {a:1,b:2};
+        xhr1 = new XMLHttpRequest();
+        xhr1.onreadystatechange = xhr1Response;
+        xhr1.open("POST",phpUrl,true);
+        xhr1.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        xhr1.send("data="+JSON.stringify(data));
+    }
+
+    function xhr1Response(){
+        if(xhr1.readyState == 4 && xhr1.status == 200){
+            var r1 = xhr1.responseText;
+            $("#div1").text(r1);
+        }
+        else
+        {
+            console.log(xhr1);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+
+<button id="btn1">点击发送请求</button>
+<button id="btn2">我叫jsonp</button>
+<p id="p1">我会变成结果</p>
+<p id="jsonp">叫我jsonp</p>
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $.post("http://10.0.9.133/html5/jsToPhp.php",{
+                name:"啊啊啊啊",
+                url:"呵呵呵呵呵呵"
+            },function(data,status){
+                $("#p1").text("data:"+data+","+"status:"+status);
+            })
+        });
+        $("#btn2").click(function(){
+            $.getJSON("http://10.0.9.133/html5/jsonp.php?jsoncallback=?",callbackFunction);
+        })
+    });
+
+    function callbackFunction(data)
+    {
+        var str = "result:";
+        for(var i = 0;i<data.length;i++)
+        {
+            str = str + data[i] + "\n"
+        }
+        $("#jsonp").text(str);
+    }
+
+</script>
+</body>
+</html>

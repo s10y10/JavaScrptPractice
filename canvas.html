@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas{
+            border: 2px solid #c3c3c3;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="220"></canvas>
+<script>
+    var c=document.getElementById("myCanvas");
+    var cxt= c.getContext("2d");
+    cxt.fillStyle = "#ff0000";
+    cxt.shadowBlur = 10;
+    cxt.shadowColor = "#0000ff";
+    cxt.fillRect(20,20,150,75);
+    cxt.shadowBlur = 0;
+
+    cxt.moveTo(100,110);
+    cxt.lineTo(200,130);
+    cxt.lineTo(30,130);
+    cxt.stroke();
+
+    cxt.fillStyle = "#ffc000";
+    cxt.beginPath();
+    cxt.arc(250,100,30,0,Math.PI/2,true);
+    cxt.stroke();
+
+    var grd = cxt.createLinearGradient(300,0,400,0);
+    grd.addColorStop(0,"#ff0000");
+    grd.addColorStop(0.5,"#00ff00");
+    grd.addColorStop(1,"#0000ff");
+    cxt.fillStyle = grd;
+    cxt.fillRect(300,0,100,200);
+
+
+    var img = new Image();
+    img.src = "yw1.png";
+    img.onload = function(){
+        cxt.drawImage(img,420,0);
+    };
+
+
+    var eh1 = document.createElement("h1");
+    eh1.innerHTML = cxt.lineWidth;
+    document.body.appendChild(eh1);
+    cxt.strokeStyle = "#0000ff";
+    cxt.lineWidth = 5;
+    cxt.strokeRect(480,100,100,100);
+
+    cxt.font = "40px Helvetica";
+    cxt.lineWidth = 1;
+    cxt.fillStyle = grd;
+    cxt.fillText("啊啊啊啊啊啊啊啊啊",100,200);
+
+</script>
+</body>
+</html>

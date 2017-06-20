@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>获得服务器更新</h1>
+<div id="result"></div>
+<script>
+    if(typeof(EventSource)!=="undefined")
+    {
+        var source=new EventSource("http://10.0.9.73/html5/sse.php");
+        source.onmessage=function(event)
+        {
+            document.getElementById("result").innerHTML+=event.data + "<br />";
+        };
+    }
+    else
+    {
+        document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
+    }
+</script>
+</body>
+</html>
